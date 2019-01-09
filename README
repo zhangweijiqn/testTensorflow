@@ -1,0 +1,33 @@
+# based on tensorflow version 1.12
+# install on mac:
+    pip install tensorflow
+
+# Cannot uninstall 'numpy'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+    sudo pip install --ignore-installed numpy
+
+# reference book:
+《TensorFlow 实战Google深度学习框架 第2版.pdf》
+
+# reference:
+http://playground.tensorflow.org/
+https://www.tensorflow.org/
+https://github.com/tensorflow/tensorflow
+https://github.com/tensorflow/models
+
+# 高阶 API
+Keras，用于构建和训练深度学习模型的 TensorFlow 高阶 API。
+Eager Execution，一个以命令方式编写 TensorFlow 代码的 API，就像使用 NumPy 一样。
+Estimator，一个高阶 API，可以提供已准备好执行大规模训练和生产的完全打包的模型。
+导入数据，简单的输入管道，用于将您的数据导入 TensorFlow 程序。
+
+# Estimator
+Estimators分为Pre-made Estimators和custom Estimators两大类。其中，tf.estimator.Estimators是基类(base class)，pre-made Estimators是基类的子类，而custom Estimators则是基类的实例(instance)。
+Pre-made Estimators和custom Estimators差异主要在于tensorflow中是否有它们可以直接使用的模型函数(model function or model_fn)d的实现。对于前者，tensorflow中已经有写好的model function，因而直接调用即可；
+而后者的model function需要自己编写。因此，Pre-made Estimators使用方便，但使用范围小，灵活性差；custom Estimators则正好相反。
+
+# Dataset
+Dataset：数据处理的父类，提供了用于创建、变换数据集的方法,　同时也支持从内存中初始化数据集。
+TextLineDataset: 主要用于处理从文本文件中读取数据
+TFRecordDataset: TFRecord数据文件是一种将图像数据和标签统一存储的二进制文件，能更好的利用内存，在tensorflow中快速的复制，移动，读取，存储等。TFRecordDataset就是对这样格式的数据读取提供接口。
+FixedLengthRecordDataset: 从二进制文件中读取固定长度的数据。
+Iterator: 提供迭代读取数据集元素的功能。
